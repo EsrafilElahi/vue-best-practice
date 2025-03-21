@@ -12,3 +12,29 @@
     <p>by {{ username }} | {{ likes }} likes</p>
   </div>
 </template>
+
+
+
+// ==================== another mesla ======================
+// child component
+<script setup>
+const greetingMessage = 'hello'
+</script>
+
+<template>
+  <div>
+  	<slot :text="greetingMessage" :count="1"></slot>
+	</div>
+</template>
+
+
+// parent component
+<script setup>
+import MyComponent from './MyComponent.vue'
+</script>
+
+<template>
+	<MyComponent v-slot="slotProps">
+  	{{ slotProps.text }} {{ slotProps.count }}
+  </MyComponent>
+</template>
